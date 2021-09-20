@@ -3,6 +3,7 @@ import { ParamsDictionary } from 'express-serve-static-core';
 import { ParsedQs } from 'qs';
 import { CrudController } from '../CrudController';
 import { APIKEY } from '../../config/constants';
+import { SERVER } from '../../config/constants'
 
 var http = require('http');
 
@@ -13,10 +14,10 @@ export class PrinterController extends CrudController {
 	public read(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>): void {
 
 		const options = {
-			host: '192.168.1.82',
+			host: SERVER,
 			path: '/api/printer',
 			headers: {
-				'X-Api-Key': 'B5442908F74047BF99B798DD57A3F7F0'
+				'X-Api-Key': APIKEY
 			}			
 		  };		
 
